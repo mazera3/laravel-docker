@@ -1,4 +1,59 @@
-## Referencia:  https://fullcycle.com.br/docker-e-docker-composer-na-pratica-criando-ambiente-laravel/
+# Docker
+## Instalação do Docker
+* https://docs.docker.com/engine/install/ubuntu/ 
+* https://www.hostinger.com.br/tutoriais/instalar-docker-ubuntu
+
+```sh
+# Atualize seu Sistema
+sudo apt update && sudo apt upgrade
+
+# Instale Pacotes de Pré-requisitos
+sudo apt-get install  curl apt-transport-https ca-certificates software-properties-common
+# apt-transport-https – permite que o gerenciador de pacotes transfira os tiles e os dados através de https
+# ca-certificates – permite que o navegador da web e o sistema verifiquem certificados de segurança
+# curl – transfere dados
+# software-properties-common – adiciona scripts para gerenciar o software
+
+# Adicione os Repositórios do Docker
+# chave GPG
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# repositório
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" &&  sudo apt update
+
+# repositório do Docker
+apt-cache policy docker-ce
+
+# Instalar Docker Ubuntu 
+sudo apt install docker-ce
+
+# Verificar Status do Docker
+sudo systemctl status docker
+
+# Usar o Docker
+sudo docker run hello-world
+
+# procurar por imagens disponíveis
+# sudo docker search [search_query]
+sudo docker search ubuntu
+
+# download da imagem
+# sudo docker pull [image_name]
+sudo docker pull
+
+# listar imagens
+sudo docker images
+
+# executar a imagem
+# sudo docker run -i -t [image]
+sudo docker run -i -t ubuntu
+
+# Docker sem privilégios root
+sudo usermod -aG docker $(whoami)
+# docker [option]
+```
+
+## Uso do docker
+* https://fullcycle.com.br/docker-e-docker-composer-na-pratica-criando-ambiente-laravel/
 
 # Criar projeto
 * composer create-project --prefer-dist laravel/laravel laravel-docker
